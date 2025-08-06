@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POO Java - Introdução a Classes e Objetos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="slide-counter">
+      <span id="currentSlide">1</span> / <span id="totalSlides">12</span>
+    </div>
+
+    <div class="slides-container">
+      <!-- Slide 1: Título -->
+      <div class="slide active">
+        <h1>Programação Orientada a Objetos</h1>
+        <div style="text-align: center; margin: 40px 0">
+          <h2 style="color: #2d7a5f; font-weight: 300">Semana 1</h2>
+          <h3 style="color: #1e5f3f; font-weight: 300">
+            Revisão e Introdução a Classes e Objetos
+          </h3>
+        </div>
+        <div class="highlight">
+          <h3>Objetivos da Semana</h3>
+          <ul>
+            <li>Revisar conceitos básicos de Java</li>
+            <li>Introduzir classes e objetos</li>
+            <li>Compreender POO vs Programação Procedural</li>
+            <li>Criar nossas primeiras classes</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Slide 2: Revisão Java -->
+      <div class="slide">
+        <h2>🔄 Revisão Rápida - Java Básico</h2>
+        <div class="two-columns">
+          <div>
+            <h3>Tipos Primitivos</h3>
+            <div class="code-block">
+int idade = 25; 
+double salario = 2500.50; 
+boolean ativo = true;
+char inicial = 'J'; 
+String nome = "João";
+            </div>
+          </div>
+          <div>
+            <h3>Estruturas de Controle</h3>
+            <div class="code-block">
+// Condicional 
+if (idade &gt;= 18) { 
+    System.out.println("Maior de idade"); 
+} 
+// Loop 
+for (int i = 0; i &lt; 5; i++) {
+    System.out.println(i); 
+}
+            </div>
+          </div>
+        </div>
+        <div class="concept-card">
+          <p>
+            <strong>Lembra?</strong> Até agora programávamos de forma
+            <em>procedural</em> - função por função, passo a passo. Agora vamos
+            organizar nosso código de forma diferente!
+          </p>
+        </div>
+      </div>
+
+      <!-- Slide 3: O que é POO -->
+      <div class="slide">
+        <h2>🚀 O que é Programação Orientada a Objetos?</h2>
+        <div class="interactive-example">
+          <p>Imagine que você está construindo um sistema para uma escola...</p>
+        </div>
+
+        <div class="two-columns">
+          <div class="concept-card">
+            <h3>❌ Forma Procedural</h3>
+            <div class="code-block">
+String[] nomes = new String[100]; 
+int[] idades = new int[100];
+double[] notas = new double[100]; 
+void cadastrarAluno(...) { }
+void calcularMedia(...) { } 
+void exibirBoletim(...) { }
+            </div>
+            <p>Dados e funções separados!</p>
+          </div>
+
+          <div class="concept-card">
+            <h3>✅ Forma Orientada a Objetos</h3>
+            <div class="code-block">
+class Aluno { 
+  String nome;
+  int idade; 
+  double[] notas; 
+
+  void calcularMedia() { } 
+  void exibirBoletim() { } 
+}
+            </div>
+            <p>Dados e comportamentos juntos!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Conceitos Fundamentais -->
+      <div class="slide">
+        <h2>🎯 Conceitos Fundamentais</h2>
+
+        <div class="concept-card" onclick="toggleDetails(this)">
+          <h3>🏗️ Classe</h3>
+          <p>
+            É o <strong>modelo</strong> ou <strong>blueprint</strong> para criar
+            objetos
+          </p>
+          <div class="details" style="display: none; margin-top: 15px">
+            <div class="code-block">
+              class Pessoa { // Modelo para criar pessoas String nome; int
+              idade; void falar() { System.out.println("Olá!"); } }
+            </div>
+          </div>
+        </div>
+
+        <div class="concept-card" onclick="toggleDetails(this)">
+          <h3>👤 Objeto</h3>
+          <p>É uma <strong>instância</strong> de uma classe - algo concreto</p>
+          <div class="details" style="display: none; margin-top: 15px">
+            <div class="code-block">
+              Pessoa joao = new Pessoa(); Pessoa maria = new Pessoa(); // João e
+              Maria são objetos diferentes!
+            </div>
+          </div>
+        </div>
+
+        <div class="two-columns">
+          <div class="concept-card">
+            <h3>📋 Atributos</h3>
+            <p>Características do objeto (o que ele <em>tem</em>)</p>
+          </div>
+          <div class="concept-card">
+            <h3>⚡ Métodos</h3>
+            <p>Comportamentos do objeto (o que ele <em>faz</em>)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Anatomia de uma Classe -->
+      <div class="slide">
+        <h2>🔬 Anatomia de uma Classe Java</h2>
+
+        <div class="code-block">
+          <span style="color: #c678dd">public class</span> <span style="color: #e06c75">Pessoa</span> {
+            <span style="color: #5c6370">// ATRIBUTOS - O que o objeto TEM</span>
+            <span style="color: #c678dd">private</span> <span style="color: #e5c07b">String</span> nome;
+            <span style="color: #c678dd">private</span> <span style="color: #e5c07b">int</span> idade;
+            <span style="color: #c678dd">private</span> <span style="color: #e5c07b">String</span> email;
+
+            <span style="color: #5c6370">// MÉTODOS - O que o objeto FAZ</span>
+            <span style="color: #c678dd">public void</span> <span style="color: #61afef">setNome</span>(<span style="color: #e5c07b">String</span> nome) { <span style="color: #c678dd">this</span>.nome = nome; }
+
+            <span style="color: #c678dd">public</span> <span style="color: #e5c07b">String</span><span style="color: #61afef">getNome</span>() { <span style="color: #c678dd">return</span> nome; }
+
+            <span style="color: #c678dd">public void</span> <span style="color: #61afef">apresentar</span>() {
+              System.out.println(<span style="color: #98c379">"Oi, eu sou "</span> + nome); 
+            } 
+          }
+        </div>
+
+        <div class="highlight">
+          <h3>🔐 Por que usar <code>private</code> e <code>public</code>?</h3>
+          <p>
+            <strong>Encapsulamento:</strong> Protegemos os dados internos e
+            controlamos como são acessados!
+          </p>
+        </div>
+      </div>
+
+      <!-- Slide 6: Criando e Usando Objetos -->
+      <div class="slide">
+        <h2>🎨 Criando e Usando Objetos</h2>
+
+        <div class="interactive-example">
+          <h3>Passo a Passo:</h3>
+          <div class="code-block">
+            <span style="color: #5c6370">// 1. DECLARAR uma variável do tipo da classe</span>
+            <span style="color: #e5c07b">Pessoa</span> pessoa1;
+            <span style="color: #5c6370">// 2. INSTANCIAR (criar) o objeto</span> 
+            pessoa1 = <span style="color: #c678dd">new</span> <span style="color: #e5c07b">Pessoa</span>();
+            <span style="color: #5c6370">// 3. OU fazer tudo numa linha:</span>
+            <span style="color: #e5c07b">Pessoa</span> pessoa2 = <span style="color: #c678dd">new</span> <span style="color: #e5c07b">Pessoa</span>();
+            <span style="color: #5c6370">// 4. USAR o objeto</span>
+            pessoa1.setNome(<span style="color: #98c379">"Ana"</span>);
+            pessoa1.setIdade(<span style="color: #d19a66">22</span>);
+            pessoa1.apresentar();
+            <span style="color: #5c6370">// "Oi, eu sou Ana"</span>
+          </div>
+        </div>
+
+        <div class="concept-card">
+          <h3>🎭 Múltiplos Objetos</h3>
+          <div class="code-block">
+            <span style="color: #e5c07b">Pessoa</span> professor = <span style="color: #c678dd">new</span> <span style="color: #e5c07b">Pessoa</span>();
+            <span style="color: #e5c07b">Pessoa</span> aluno1 = <span style="color: #c678dd">new</span> <span style="color: #e5c07b">Pessoa</span>();
+            <span style="color: #e5c07b">Pessoa</span> aluno2 = <span style="color: #c678dd">new</span> <span style="color: #e5c07b">Pessoa</span>();
+
+            <span style="color: #5c6370">// Cada um é único e independente!</span>
+            professor.setNome(<span style="color: #98c379">"Prof. Silva"</span>); 
+            aluno1.setNome(<span style="color: #98c379">"Carlos"</span>);
+            aluno2.setNome(<span style="color: #98c379">"Beatriz"</span>);
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Exemplo Prático - Pessoa -->
+      <div class="slide">
+        <h2>👩‍💻 Vamos Programar: Classe Pessoa</h2>
+
+        <div class="code-block">
+          <span style="color: #c678dd">public class</span
+          > <span style="color: #e5c07b">Pessoa</span> {
+              <span style="color: #c678dd">private</span> <span style="color: #e5c07b">String</span> nome;
+              <span style="color: #c678dd">private</span> <span style="color: #e5c07b">int</span> idade;
+              <span style="color: #c678dd">private</span> <span style="color: #e5c07b">String</span> email;
+
+              <span style="color: #5c6370">// Setters - para DEFINIR valores</span>
+              <span style="color: #c678dd">public void</span> <span style="color: #61afef">setNome</span
+                >(<span style="color: #e5c07b">String</span
+              > nome) { <span style="color: #c678dd">this</span>.nome = nome; }
+
+              <span style="color: #5c6370">// Getters - para OBTER valores</span>
+              <span style="color: #c678dd">public</span> <span style="color: #e5c07b">String</span
+                > <span style="color: #61afef">getNome</span>() { <span style="color: #c678dd">return</span> nome; }
+
+              <span style="color: #5c6370">// Método de negócio</span>
+              <span style="color: #c678dd">public void</span> <span style="color: #61afef">exibirInfo</span>() {
+                System.out.println(<span style="color: #98c379">"Nome: "</span> + nome); 
+                System.out.println(<span style="color: #98c379"
+                >"Idade: "</span
+              > + idade); 
+                System.out.println(<span style="color: #98c379"
+                >"Email: "</span
+              > + email); 
+              } 
+            }
+        </div>
+
+        <div class="exercise-box">
+          <h4>💡 Dica:</h4>
+          <p>
+            A palavra <code>this</code> se refere ao objeto atual. Use quando o
+            parâmetro tem o mesmo nome do atributo!
+          </p>
+        </div>
+      </div>
+
+      <!-- Slide 8: Exemplo Mais Complexo - Produto -->
+      <div class="slide">
+        <h2>🛍️ Exemplo Avançado: Classe Produto</h2>
+
+        <div class="code-block">
+          <span style="color: #c678dd">public class</span> <span style="color: #e5c07b">Produto</span> {
+            <span style="color: #c678dd">private</span> <span style="color: #e5c07b">String</span> nome;
+            <span style="color: #c678dd">private</span> <span style="color: #e5c07b">double</span> preco;
+            <span style="color: #c678dd">private</span> <span style="color: #e5c07b">int</span> quantidade;
+
+            <span style="color: #c678dd">public void</span> <span style="color: #61afef">setPreco</span>(<span
+            style="color: #e5c07b"
+            >double</span
+            >preco) { 
+              <span style="color: #c678dd">if</span> (preco >=<span style="color: #d19a66">0</span>) {
+                <span style="color: #c678dd">this</span>.preco = preco; 
+              } <span style="color: #c678dd">else</span> { 
+                System.out.println(<span
+            style="color: #98c379"
+            >"Preço não pode ser negativo!"</span
+          >); 
+              } 
+            }
+
+            <span style="color: #5c6370"
+              >// Métodos de negócio mais sofisticados</span>
+            <span style="color: #c678dd">public</span> <span style="color: #e5c07b">double</span
+              > <span style="color: #61afef">calcularValorTotal</span>() {
+              <span style="color: #c678dd">return</span> preco * quantidade; 
+            }
+
+            <span style="color: #c678dd">public void</span> <span style="color: #61afef">adicionarEstoque</span>(<span
+              style="color: #e5c07b"
+              >int</span
+            > qtd) { 
+              quantidade += qtd; 
+              System.out.println(qtd + <span style="color: #98c379">" unidades adicionadas!"</span>); 
+            } 
+          }
+        </div>
+
+        <div class="highlight">
+          <h3>✨ Validação de Dados</h3>
+          <p>
+            Nos métodos <code>set</code>, podemos validar os dados antes de
+            armazenar!
+          </p>
+        </div>
+      </div>
+
+      <!-- Slide 9: Exercícios Práticos -->
+      <div class="slide">
+        <h2>🏋️‍♀️ Hora de Praticar!</h2>
+
+        <div class="exercise-box">
+          <h4>📚 Exercício 1: Classe Aluno</h4>
+          <p>Crie uma classe com: nome, matrícula, 3 notas</p>
+          <ul>
+            <li>Método <code>calcularMedia()</code></li>
+            <li>
+              Método
+              <code>verificarSituacao()</code> (Aprovado/Recuperação/Reprovado)
+            </li>
+            <li>Método <code>exibirBoletim()</code></li>
+          </ul>
+        </div>
+
+        <div class="exercise-box">
+          <h4>💰 Exercício 2: Classe ContaBancaria</h4>
+          <p>Atributos: número, titular, saldo</p>
+          <ul>
+            <li>Método <code>depositar()</code></li>
+            <li>Método <code>sacar()</code> (com validação)</li>
+            <li>Método <code>consultarSaldo()</code></li>
+          </ul>
+        </div>
+
+        <div class="exercise-box">
+          <h4>📖 Exercício 3: Classe Livro</h4>
+          <p>Título, autor, ano, páginas, disponível</p>
+          <ul>
+            <li>Métodos <code>emprestar()</code> e <code>devolver()</code></li>
+            <li>Método <code>calcularIdade()</code></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Slide 10: Comparação Procedural vs POO -->
+      <div class="slide">
+        <h2>⚔️ Procedural vs Orientado a Objetos</h2>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Aspecto</th>
+              <th>Programação Procedural</th>
+              <th>Programação Orientada a Objetos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Foco</strong></td>
+              <td>Funções e procedimentos</td>
+              <td>Objetos e suas interações</td>
+            </tr>
+            <tr>
+              <td><strong>Organização</strong></td>
+              <td>Código linear, sequencial</td>
+              <td>Classes e objetos</td>
+            </tr>
+            <tr>
+              <td><strong>Dados</strong></td>
+              <td>Separados das funções</td>
+              <td>Encapsulados nos objetos</td>
+            </tr>
+            <tr>
+              <td><strong>Reutilização</strong></td>
+              <td>Limitada</td>
+              <td>Alta (herança, polimorfismo)</td>
+            </tr>
+            <tr>
+              <td><strong>Manutenibilidade</strong></td>
+              <td>Difícil em projetos grandes</td>
+              <td>Mais fácil e organizada</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Slide 11: Boas Práticas -->
+      <div class="slide">
+        <h2>⭐ Boas Práticas em POO</h2>
+
+        <div class="two-columns">
+          <div>
+            <div class="concept-card">
+              <h3>📝 Nomenclatura</h3>
+              <ul>
+                <li><strong>Classes:</strong> PascalCase (MinhaClasse)</li>
+                <li><strong>Métodos:</strong> camelCase (meuMetodo)</li>
+                <li><strong>Atributos:</strong> camelCase (meuAtributo)</li>
+              </ul>
+            </div>
+
+            <div class="concept-card">
+              <h3>🔒 Encapsulamento</h3>
+              <ul>
+                <li>Atributos: <code>private</code></li>
+                <li>Métodos públicos: <code>public</code></li>
+                <li>Use getters e setters</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div class="concept-card">
+              <h3>⚠️ Erros Comuns</h3>
+              <ul>
+                <li>Esquecer o <code>new</code></li>
+                <li>Acessar atributos direto</li>
+                <li>Não validar dados</li>
+                <li>Não inicializar objetos</li>
+              </ul>
+            </div>
+
+            <div class="concept-card">
+              <h3>💡 Dicas de Ouro</h3>
+              <ul>
+                <li>Uma classe = uma responsabilidade</li>
+                <li>Nomes claros e descritivos</li>
+                <li>Validar sempre os dados</li>
+                <li>Comentar código complexo</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Próximos Passos -->
+      <div class="slide">
+        <h2>🚀 Próximos Passos</h2>
+
+        <div class="highlight">
+          <h3>📋 Trabalho:</h3>
+          <ul>
+            <li>Implementar as classes Funcionario e Veiculo</li>
+            <li>Criar um sistema simples integrando Pessoa e ContaBancaria</li>
+            <li>Utilize exemplos dos exercícios propostos</li>
+          </ul>
+        </div>
+
+        <div class="two-columns">
+          <div class="concept-card">
+            <h3>📚 Semana que vem:</h3>
+            <ul>
+              <li>Construtores</li>
+              <li>Sobrecarga de métodos</li>
+              <li>Modificadores de acesso</li>
+              <li>Projeto: Sistema de Biblioteca</li>
+            </ul>
+          </div>
+
+          <div class="concept-card">
+            <h3>🎯 Meta da Semana:</h3>
+            <p>Até o final desta semana, você deve conseguir:</p>
+            <ul>
+              <li>Criar classes com atributos e métodos</li>
+              <li>Instanciar e usar objetos</li>
+              <li>Aplicar encapsulamento básico</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px">
+          <h3 style="color: #2d7a5f">Dúvidas? Vamos programar juntos! 👨‍💻</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="navigation">
+      <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+        ⬅️ Anterior
+      </button>
+      <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+        Próximo ➡️
+      </button>
+      <button class="nav-btn" onclick="toggleFullscreen()">
+        🔍 Tela Cheia
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
